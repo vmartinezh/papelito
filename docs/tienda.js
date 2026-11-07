@@ -5,11 +5,9 @@
   var app = document.getElementById("app");
   var CLAVE = "papelito-pedido";
   var CLAVE_DATOS = "papelito-datos";
-  var COLORES = { coral: "--coral", mantequilla: "--mantequilla", malva: "--malva", agua: "--agua", flor: "--flor" };
   var moneda = new Intl.NumberFormat("es-CL", { style: "currency", currency: "CLP", maximumFractionDigits: 0 });
-  var MENOS = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>';
-  var MAS = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h12M8 2v12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>';
-  var TIJERAS = '<svg aria-hidden="true"><use href="#tijeras"/></svg>';
+  var MENOS = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+  var MAS = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h12M8 2v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 
   var productos = {};
   tienda.productos.forEach(function (p) { productos[p.id] = p; });
@@ -21,10 +19,6 @@
     return String(t).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
     });
-  }
-  function color(p) {
-    var c = categorias[p.categoria];
-    return "var(" + (c ? COLORES[c.color] : "--papel") + ")";
   }
   function precio(n) { return moneda.format(n); }
   function avisar(t) { document.getElementById("vivo").textContent = t; }
@@ -60,6 +54,7 @@
     var n = unidades();
     var cuenta = document.getElementById("cuenta");
     cuenta.textContent = n;
+    cuenta.hidden = n === 0;
     document.getElementById("barraCuenta").textContent = n + (n === 1 ? " producto" : " productos") + " · " + precio(total());
     document.getElementById("barra").hidden = n === 0;
     document.body.classList.toggle("con-barra", n > 0 && location.hash !== "#/pedido");
@@ -71,40 +66,33 @@
   }
 
   /* Piezas */
-  function selector(p, etiqueta) {
-    var n = pedido[p.id] || 0;
-    if (p.agotado) return '<p class="agotado">Agotado</p>';
-    if (!n) return '<button class="btn" type="button" data-agregar="' + esc(p.id) + '">' + (etiqueta || "Agregar") + '<span class="sr"> ' + esc(p.nombre) + "</span></button>";
-    return cantidad(p, n);
-  }
   function cantidad(p, n) {
     return '<div class="cant" role="group" aria-label="Cantidad de ' + esc(p.nombre) + '">' +
       '<button type="button" data-restar="' + esc(p.id) + '" aria-label="Quitar uno">' + MENOS + "</button>" +
       "<output>" + n + "</output>" +
       '<button type="button" data-sumar="' + esc(p.id) + '" aria-label="Agregar uno">' + MAS + "</button></div>";
   }
+  function selector(p, grande) {
+    var n = pedido[p.id] || 0;
+    if (p.agotado) return '<p class="agotado">Agotado</p>';
+    if (n) return cantidad(p, n);
+    if (grande) return '<button class="btn" type="button" data-agregar="' + esc(p.id) + '">Agregar a mi pedido</button>';
+    return '<button class="agregar" type="button" data-agregar="' + esc(p.id) + '">+ Agregar<span class="sr"> ' + esc(p.nombre) + "</span></button>";
+  }
   function valorPrecio(p) {
     return precio(p.precio) + (p.muestra ? " <small>ejemplo</small>" : "");
   }
   function celda(p) {
     var ruta = "#/producto/" + encodeURIComponent(p.id);
-    return '<article class="corte" data-id="' + esc(p.id) + '">' +
-      '<a class="foto" href="' + ruta + '" tabindex="-1" aria-hidden="true"><img src="' + esc(p.imagen) + '" alt="" width="400" height="400" loading="lazy"></a>' +
-      '<div class="datos"><h3><a href="' + ruta + '">' + esc(p.nombre) + "</a></h3>" +
-      '<div class="compra"><p class="precio">' + valorPrecio(p) + "</p>" +
-      '<div class="accion" data-accion="' + esc(p.id) + '">' + selector(p) + "</div></div></div></article>";
-  }
-  /* Recortes con la flor: completan la lámina para que no queden huecos, con cualquier cantidad de productos */
-  function recortes(n) {
-    var escritorio = (4 - (n + 1) % 4) % 4, telefono = n % 2, html = "";
-    for (var i = 0; i < Math.max(escritorio, telefono); i++) {
-      html += '<div class="resto' + (i < escritorio ? " resto--d" : "") + (i < telefono ? " resto--m" : "") + '" aria-hidden="true"><img src="img/flor.svg" alt="" width="72" height="72"></div>';
-    }
-    return html;
+    return '<article class="producto">' +
+      '<a class="foto" href="' + ruta + '" tabindex="-1" aria-hidden="true"><img src="' + esc(p.imagen) + '" alt="" width="600" height="600" loading="lazy"></a>' +
+      '<h3><a href="' + ruta + '">' + esc(p.nombre) + "</a></h3>" +
+      '<p class="precio">' + valorPrecio(p) + "</p>" +
+      '<div class="accion" data-accion="' + esc(p.id) + '">' + selector(p) + "</div></article>";
   }
   function refrescarSelectores(id) {
     document.querySelectorAll('[data-accion="' + id + '"]').forEach(function (nodo) {
-      nodo.innerHTML = selector(productos[id], nodo.getAttribute("data-etiqueta"));
+      nodo.innerHTML = selector(productos[id], nodo.hasAttribute("data-grande"));
     });
   }
 
@@ -115,9 +103,9 @@
     tienda.categorias.forEach(function (c) {
       var lista = tienda.productos.filter(function (p) { return p.categoria === c.id; });
       if (!lista.length) return;
-      html += '<section class="lamina" id="' + esc(c.id) + '" style="--c:var(' + COLORES[c.color] + ')" aria-labelledby="t-' + esc(c.id) + '">' +
-        '<div class="grilla"><div class="titulo"><h2 id="t-' + esc(c.id) + '">' + esc(c.nombre) + "</h2>" + TIJERAS + "</div>" +
-        lista.map(celda).join("") + recortes(lista.length) + "</div></section>";
+      html += '<section class="seccion" id="' + esc(c.id) + '" aria-labelledby="t-' + esc(c.id) + '">' +
+        '<h2 id="t-' + esc(c.id) + '">' + esc(c.nombre) + '</h2><div class="grilla">' +
+        lista.map(celda).join("") + "</div></section>";
     });
     app.innerHTML = html;
   }
@@ -127,12 +115,12 @@
     if (!p) return noEncontrado();
     var c = categorias[p.categoria];
     document.title = p.nombre + " | Papelito";
-    app.innerHTML = '<article class="ficha" style="--c:' + color(p) + '" data-id="' + esc(p.id) + '">' +
+    app.innerHTML = '<article class="ficha">' +
       '<a class="volver" href="#/categoria/' + esc(p.categoria) + '">Volver a ' + esc(c ? c.corto : "la tienda") + "</a>" +
-      '<div class="ficha__grilla"><div class="ficha__foto"><img src="' + esc(p.imagen) + '" alt="' + esc(p.nombre) + '" width="400" height="400"></div>' +
+      '<div class="ficha__grilla"><div class="ficha__foto"><img src="' + esc(p.imagen) + '" alt="' + esc(p.nombre) + '" width="600" height="600"></div>' +
       "<div><h1>" + esc(p.nombre) + '</h1><p class="precio">' + valorPrecio(p) + "</p>" +
       '<p class="ficha__desc">' + esc(p.descripcion) + "</p>" +
-      '<div class="ficha__accion accion" data-accion="' + esc(p.id) + '" data-etiqueta="Agregar a mi pedido">' + selector(p, "Agregar a mi pedido") + "</div></div></div></article>";
+      '<div class="ficha__accion" data-accion="' + esc(p.id) + '" data-grande>' + selector(p, true) + "</div></div></div></article>";
   }
 
   function noEncontrado() {
@@ -155,12 +143,12 @@
     var despacho = datos.entrega === "despacho";
     app.innerHTML = '<div class="pedido"><h1>Mi pedido</h1>' +
       (hayNumero ? "" : '<p class="pendiente">Todavía no estamos recibiendo pedidos por este sitio.</p>') +
-      '<form id="form" novalidate><div class="talon">' +
+      '<form id="form" novalidate>' +
       '<section aria-label="Productos"><div id="lineas">' + ids.map(linea).join("") + "</div>" +
       '<p class="total"><span>Total productos</span><span id="total">' + precio(total()) + "</span></p>" +
       '<p class="nota">El pago es por transferencia.</p>' +
       '<p class="nota" id="notaDespacho"' + (despacho ? "" : " hidden") + ">El costo del despacho se confirma por WhatsApp, antes de pagar.</p></section>" +
-      '<section><h2>¿Cómo lo recibes?</h2>' +
+      "<section><h2>¿Cómo lo recibes?</h2>" +
       '<fieldset class="opciones"><legend class="sr">Forma de entrega</legend>' +
       '<label class="opcion"><input type="radio" name="entrega" value="retiro"' + (despacho ? "" : " checked") + "> Retiro en Santiago</label>" +
       '<label class="opcion"><input type="radio" name="entrega" value="despacho"' + (despacho ? " checked" : "") + "> Despacho</label></fieldset>" +
@@ -169,10 +157,8 @@
       '<div id="camposDespacho"' + (despacho ? "" : " hidden") + ">" + campo("direccion", "Dirección", "street-address") + campo("comuna", "Comuna", "address-level2") + "</div>" +
       '</section><div class="enviar">' +
       (hayNumero
-        ? '<button class="btn btn--grande" type="submit">Enviar pedido por WhatsApp</button>'
-        : '<button class="btn btn--grande" type="button" disabled>Enviar pedido por WhatsApp</button>') +
-      '</div><svg class="talon__tijeras" aria-hidden="true"><use href="#tijeras"/></svg></div>' +
-      '<div class="tras-envio">' + (hayNumero ? '<p class="nota">Se abrirá WhatsApp con tu pedido escrito.</p>' : "") +
+        ? '<button class="btn btn--ancho" type="submit">Enviar pedido por WhatsApp</button><p class="nota">Se abrirá WhatsApp con tu pedido escrito.</p>'
+        : '<button class="btn btn--ancho" type="button" disabled>Enviar pedido por WhatsApp</button>') +
       '<div id="enviado"></div></div></form></div>';
     if (enviado) mostrarEnviado();
   }
@@ -184,8 +170,8 @@
   function linea(id) {
     var p = productos[id];
     var n = pedido[id];
-    return '<div class="linea" data-linea="' + esc(id) + '" style="--c:' + color(p) + '">' +
-      '<div class="linea__foto"><img src="' + esc(p.imagen) + '" alt="" width="64" height="64"></div>' +
+    return '<div class="linea" data-linea="' + esc(id) + '">' +
+      '<div class="linea__foto"><img src="' + esc(p.imagen) + '" alt="" width="72" height="72"></div>' +
       '<p class="linea__nombre"><a href="#/producto/' + encodeURIComponent(id) + '">' + esc(p.nombre) + "</a></p>" +
       '<p class="linea__subtotal">' + precio(n * p.precio) + "</p>" +
       cantidad(p, n) +
@@ -200,9 +186,9 @@
       var p = productos[id];
       lineas.push("- " + pedido[id] + " x " + p.nombre + (p.muestra ? " (ejemplo)" : "") + ": " + precio(pedido[id] * p.precio));
     });
-    lineas.push("", "Total productos: " + precio(total()), "", "Nombre: " + datos.nombre.trim());
+    lineas.push("", "Total productos: " + precio(total()), "", "Nombre: " + (datos.nombre || "").trim());
     if (datos.entrega === "despacho") {
-      lineas.push("Entrega: despacho", "Dirección: " + datos.direccion.trim() + ", " + datos.comuna.trim());
+      lineas.push("Entrega: despacho", "Dirección: " + (datos.direccion || "").trim() + ", " + (datos.comuna || "").trim());
     } else {
       lineas.push("Entrega: retiro en Santiago");
     }
@@ -236,76 +222,13 @@
     return !primero;
   }
 
-  /* El recorte: las tijeras del logo siguen la línea punteada del producto */
-  function sinMovimiento() { return matchMedia("(prefers-reduced-motion: reduce)").matches; }
-
-  function recortar(cel, alTerminar) {
-    if (sinMovimiento() || !cel.animate) { alTerminar(); return; }
-    var w = cel.offsetWidth, h = cel.offsetHeight;
-    var ns = "http://www.w3.org/2000/svg";
-    var svg = document.createElementNS(ns, "svg");
-    svg.setAttribute("class", "trazo");
-    svg.setAttribute("viewBox", "0 0 " + w + " " + h);
-    svg.setAttribute("aria-hidden", "true");
-    var path = document.createElementNS(ns, "path");
-    path.setAttribute("d", "M0 0H" + w + "V" + h + "H0Z");
-    svg.appendChild(path);
-    var tij = document.createElement("div");
-    tij.className = "trazo-tijeras";
-    tij.innerHTML = '<svg width="30" height="30" aria-hidden="true"><use href="#tijeras"/></svg>';
-    cel.appendChild(svg);
-    cel.appendChild(tij);
-    var largo = path.getTotalLength();
-    path.style.strokeDasharray = largo;
-    path.style.strokeDashoffset = largo;
-    var dur = 620, ini = performance.now();
-    function paso(t) {
-      var x = Math.max(0, Math.min((t - ini) / dur, 1));
-      var d = largo * (1 - Math.pow(1 - x, 2.4));
-      var a = path.getPointAtLength(d), b = path.getPointAtLength(Math.min(d + 1, largo));
-      var giro = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
-      path.style.strokeDashoffset = largo - d;
-      tij.style.transform = "translate(" + a.x + "px," + a.y + "px) rotate(" + (giro + Math.sin(x * 40) * 8) + "deg)";
-      if (x < 1) { requestAnimationFrame(paso); return; }
-      tij.remove();
-      svg.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 240 }).onfinish = function () { svg.remove(); };
-      alTerminar();
-    }
-    requestAnimationFrame(paso);
-  }
-
-  function volar(cel, id) {
-    var img = cel.querySelector("img");
-    var barra = document.getElementById("barra");
-    var destino = getComputedStyle(barra).display !== "none" ? barra : document.getElementById("cuenta");
-    if (!img || sinMovimiento()) { actualizarCuenta(true); return; }
-    var o = img.getBoundingClientRect(), d = destino.getBoundingClientRect();
-    if (!o.width) { actualizarCuenta(true); return; }
-    var n = document.createElement("div");
-    n.className = "volando";
-    n.style.cssText = "left:" + o.left + "px;top:" + o.top + "px;width:" + o.width + "px;height:" + o.height + "px;--c:" + color(productos[id]);
-    n.innerHTML = '<img src="' + esc(productos[id].imagen) + '" alt="">';
-    document.body.appendChild(n);
-    var dx = d.left + d.width / 2 - (o.left + o.width / 2), dy = d.top + d.height / 2 - (o.top + o.height / 2);
-    n.animate([
-      { transform: "none", opacity: 1 },
-      { transform: "translate(" + dx * 0.35 + "px," + (dy * 0.35 - 24) + "px) rotate(-6deg) scale(.6)", opacity: 1, offset: 0.45 },
-      { transform: "translate(" + dx + "px," + dy + "px) rotate(8deg) scale(.08)", opacity: 0.7 }
-    ], { duration: 520, easing: "cubic-bezier(.45,.05,.3,1)" }).onfinish = function () {
-      n.remove();
-      actualizarCuenta(true);
-    };
-  }
-
-  function agregar(id, boton) {
-    var cel = boton.closest(".corte");
+  function agregar(id) {
     fijar(id, 1);
+    actualizarCuenta(true);
     refrescarSelectores(id);
     avisar(productos[id].nombre + " agregado a tu pedido.");
     var mas = document.querySelector('[data-accion="' + id + '"] [data-sumar]');
     if (mas) mas.focus();
-    if (cel) recortar(cel, function () { volar(cel, id); });
-    else actualizarCuenta(true);
   }
 
   function cambiar(id, n) {
@@ -338,7 +261,7 @@
     var b = ev.target.closest("button");
     if (!b) return;
     var d = b.dataset;
-    if (d.agregar) agregar(d.agregar, b);
+    if (d.agregar) agregar(d.agregar);
     else if (d.sumar) { cambiar(d.sumar, (pedido[d.sumar] || 0) + 1); restaurarFoco("sumar", d.sumar); }
     else if (d.restar) { cambiar(d.restar, (pedido[d.restar] || 0) - 1); restaurarFoco("restar", d.restar); }
     else if (d.quitar) { cambiar(d.quitar, 0); restaurarFoco("quitar", d.quitar); }
@@ -400,14 +323,25 @@
   }
   window.addEventListener("hashchange", ruta);
 
+  /* El acceso flotante al pedido solo aparece cuando el encabezado ya no se ve */
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (e) {
+      document.body.classList.toggle("top-fuera", !e[0].isIntersecting);
+    }).observe(document.querySelector(".top"));
+  } else {
+    document.body.classList.add("top-fuera");
+  }
+
   /* Inicio */
   document.getElementById("cats").innerHTML = tienda.categorias.map(function (c) {
-    return '<a href="#/categoria/' + esc(c.id) + '" style="--c:var(' + COLORES[c.color] + ')">' + esc(c.corto) + "</a>";
+    return '<a href="#/categoria/' + esc(c.id) + '">' + esc(c.corto) + "</a>";
   }).join("");
   document.getElementById("aviso").hidden = !tienda.productos.some(function (p) { return p.muestra; });
+  var ig = document.getElementById("irInstagram");
+  if (tienda.instagram) ig.href = tienda.instagram; else ig.hidden = true;
   var contacto = [];
   if (tienda.correo) contacto.push('<a href="mailto:' + esc(tienda.correo) + '">' + esc(tienda.correo) + "</a>");
-  if (tienda.instagram) contacto.push('<a href="' + esc(tienda.instagram) + '" target="_blank" rel="noopener">Instagram @papelito.br</a>');
-  document.getElementById("pieInstagram").innerHTML = contacto.join(" · ");
+  if (tienda.instagram) contacto.push('<a href="' + esc(tienda.instagram) + '" target="_blank" rel="noopener">@papelito.br</a>');
+  document.getElementById("pieContacto").innerHTML = contacto.join(" · ");
   ruta();
 })();

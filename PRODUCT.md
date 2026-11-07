@@ -38,8 +38,9 @@ Orders close on WhatsApp and are paid by bank transfer. There is no payment gate
 ## Brand Commitments
 
 - Name: Papelito. Instagram: @papelito.br. Location: Santiago, Chile.
-- Logo: pastel multicolour letters on white with scissors and a flower, and "brasileño" in script. The colours of the site derive from this logo.
+- Logo: pastel multicolour letters on white with scissors and a flower, and "brasileño" in script. The colours of the site derive from this logo, with the logo itself as the strongest note of colour.
 - Language: Chilean Spanish.
+- Owner's layout commitments: white as the main colour, logo centred with the categories beneath it, few colours, and products shown as square image, name and price centred, four across. No large cover on the home page: products come straight after the header.
 
 ## Evidence on Hand
 

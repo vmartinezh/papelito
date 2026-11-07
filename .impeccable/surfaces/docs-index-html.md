@@ -8,19 +8,22 @@ related_targets: []
 # Tienda Papelito (home, producto, pedido)
 
 Visitor mode: Persuade. Audience, job and constraints live in PRODUCT.md. Build path: code-led (no image generation available).
-Memorable moment: the logo's scissors cut a product out of the sheet and it lands in the order.
-Unresolved: WhatsApp number, high-resolution logo, real products and photos, pickup location, delivery areas.
+Replaces the previous cut-out sheet world, which the owner rejected.
+Reference supplied by the owner: a baby boutique template pin (layout reference only; no assets or copy taken).
+Unresolved: real products and photos, pickup location, delivery areas. More inspiration may arrive.
 
 ## Direction contract
 
-THESIS: The store is one printed school cut-out sheet where every product is ready to be cut out and taken. It refuses the marketplace of floating cards, banners and promotions.
+THESIS: A quiet white boutique where the logo is the one burst of colour and the products do the rest. It refuses both marketplace noise and colour-coded category blocks.
 
-OWN-WORLD: Full-bleed flat pastel sheets from the logo, one colour per category, on white paper. Products are tessellated cells with shared dashed cut lines, never floating cards. Deep plum ink. Chunky playful display over a highly legible body. Drawn scissors and flower. One saturated action colour used only for buying.
+OWN-WORLD: White ground, deep muted teal ink, one teal accent taken from the logo's script, pale grey-teal image wells, hairlines, a single humanist sans, small tracked uppercase for navigation and section titles, square-cornered controls, one deep teal footer band.
 
-STORY: The visitor sees it is a calm stationery shop, browses sheets by colour, adds products, reviews the order, chooses pickup or delivery, and sends it by WhatsApp to pay by transfer.
+Sample art is ink plus teal tints so the logo stays the only multicolour; real photos should be neutral and low-chroma.
 
-FIRST VIEWPORT: Thin white header with the logo left, category links, order count right. Immediately below, the first sheet edge to edge: a large category-name cell plus three product cells with working Agregar buttons; the next sheet's colour begins before the fold. Primary action sits in each cell. Phone: heading full width, products two across.
+STORY: The visitor sees it is a calm stationery shop, browses products by category, adds them, reviews the order, chooses pickup or delivery, and sends it by WhatsApp to pay by transfer.
 
-FORM: Lámina para recortar, position 3 of the ordered list, seed key 4e298bcd. Raises: one colour reserved for the action (fanzine); one continuous cut line carries the order to WhatsApp (neon); calm page with one marked moment, adding to the order (emergency broadcast).
+FIRST VIEWPORT: Logo centred at the top with Instagram left and order bag right; categories in a centred row beneath; hairline; immediately the first centred section title and a row of four square products with centred name, price and a discreet + Agregar text link. Phone: same order, two across.
+
+FORM: Pinned by the owner, so no seed roll was run. The owner's words, relayed by the user: "el logo está centrado al medio, con las categorías abajo, el sitio de color blanco como principal, sin tantos colores en cada categoría" and products as in the reference's "Most Loved". Ink colour, teal accent and typeface were the builder's choices, not the owner's.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
