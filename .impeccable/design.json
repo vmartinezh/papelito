@@ -1,0 +1,435 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-07T01:12:54Z",
+  "title": "Design System: Papelito",
+  "extensions": {
+    "colorMeta": {
+      "accion": {
+        "role": "primary",
+        "displayName": "Buying Raspberry",
+        "canonical": "#b92745",
+        "tonalRamp": [
+          "#1e0004",
+          "#4c0013",
+          "#7f0026",
+          "#b01c3e",
+          "#d8475e",
+          "#ff7081",
+          "#ffb1b6",
+          "#ffe8e9"
+        ]
+      },
+      "accion-oscura": {
+        "role": "primary",
+        "displayName": "Pressed Raspberry",
+        "canonical": "#94193a",
+        "tonalRamp": [
+          "#1e0005",
+          "#4c0017",
+          "#7e012c",
+          "#a72e49",
+          "#ce5369",
+          "#f6778a",
+          "#ffb1b9",
+          "#ffe8ea"
+        ]
+      },
+      "coral": {
+        "role": "secondary",
+        "displayName": "Scissor Coral",
+        "canonical": "#f8abab",
+        "tonalRamp": [
+          "#1f0003",
+          "#480a12",
+          "#6a2b2e",
+          "#8e4a4c",
+          "#b26b6c",
+          "#d88e8e",
+          "#ffb2b2",
+          "#fee9e8"
+        ]
+      },
+      "mantequilla": {
+        "role": "secondary",
+        "displayName": "School Butter",
+        "canonical": "#f4f2ad",
+        "tonalRamp": [
+          "#0d0c00",
+          "#292600",
+          "#484400",
+          "#676421",
+          "#898644",
+          "#aba967",
+          "#d0cd8a",
+          "#f5f3ae"
+        ]
+      },
+      "malva": {
+        "role": "secondary",
+        "displayName": "Pressed Mauve",
+        "canonical": "#dcbce2",
+        "tonalRamp": [
+          "#16021b",
+          "#331a37",
+          "#513756",
+          "#725577",
+          "#947699",
+          "#b799bd",
+          "#dcbce2",
+          "#fbe7ff"
+        ]
+      },
+      "agua": {
+        "role": "secondary",
+        "displayName": "Pool Aqua",
+        "canonical": "#a3e2e3",
+        "tonalRamp": [
+          "#000e0f",
+          "#012c2d",
+          "#024c4e",
+          "#2e6c6e",
+          "#518e90",
+          "#74b2b3",
+          "#98d6d8",
+          "#bdfcfd"
+        ]
+      },
+      "flor": {
+        "role": "secondary",
+        "displayName": "Petal Blush",
+        "canonical": "#ffd6d9",
+        "tonalRamp": [
+          "#1a0306",
+          "#381b1f",
+          "#58383b",
+          "#79575a",
+          "#9c777a",
+          "#c09a9d",
+          "#e6bec1",
+          "#ffe8ea"
+        ]
+      },
+      "papel": {
+        "role": "neutral",
+        "displayName": "White Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "tinta": {
+        "role": "neutral",
+        "displayName": "Plum Ink",
+        "canonical": "#2e2140",
+        "tonalRamp": [
+          "#10041f",
+          "#2a1d3c",
+          "#483a5c",
+          "#675a7d",
+          "#897aa0",
+          "#ac9dc4",
+          "#d0c1e9",
+          "#f2eafe"
+        ]
+      },
+      "tinta-suave": {
+        "role": "neutral",
+        "displayName": "Faded Ink",
+        "canonical": "#54466a",
+        "tonalRamp": [
+          "#100320",
+          "#2b1d3d",
+          "#483a5d",
+          "#67597e",
+          "#897aa1",
+          "#ac9dc6",
+          "#d0c0eb",
+          "#f2ebff"
+        ]
+      },
+      "corte": {
+        "role": "neutral",
+        "displayName": "Cut Line",
+        "canonical": "rgba(46,33,64,.68)",
+        "tonalRamp": [
+          "#10041f",
+          "#2a1d3c",
+          "#483a5c",
+          "#675a7d",
+          "#897aa0",
+          "#ac9dc4",
+          "#d0c1e9",
+          "#f2eafe"
+        ]
+      },
+      "hilo": {
+        "role": "neutral",
+        "displayName": "Thread",
+        "canonical": "rgba(46,33,64,.16)",
+        "tonalRamp": [
+          "#10041f",
+          "#2a1d3c",
+          "#483a5c",
+          "#675a7d",
+          "#897aa0",
+          "#ac9dc4",
+          "#d0c1e9",
+          "#f2eafe"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Category names in the heading cell of each sheet."
+      },
+      "page-title": {
+        "displayName": "Page Title",
+        "purpose": "Product name on the product page; the order page title shares its ceiling."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Order-page section headings; total and product-page price share the size."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Product names in cells."
+      },
+      "price": {
+        "displayName": "Price",
+        "purpose": "Prices in cells."
+      },
+      "chip": {
+        "displayName": "Chip",
+        "purpose": "Category links in the header."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default reading text."
+      },
+      "body-large": {
+        "displayName": "Body Large",
+        "purpose": "Product description, max 48ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Buttons, field labels, options and the order link."
+      },
+      "note": {
+        "displayName": "Note",
+        "purpose": "Order-page notes and the footer."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "The sample tag beside a price."
+      }
+    },
+    "shadows": [
+      {
+        "name": "flying-cut-out",
+        "value": "0 8px 20px rgba(46,33,64,.25)",
+        "purpose": "The product tile while it travels to the order."
+      },
+      {
+        "name": "floating-bar",
+        "value": "0 8px 24px rgba(46,33,64,.3)",
+        "purpose": "The fixed phone order bar."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-change",
+        "value": "150ms",
+        "purpose": "Button background and press."
+      },
+      {
+        "name": "ease-paper",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Image lift on hover (350ms) and count badge bump (400ms)."
+      },
+      {
+        "name": "cut-trace",
+        "value": "620ms, progress 1-(1-t)^2.4",
+        "purpose": "Scissors tracing a cell's outline when a product is added; the stroke then fades over 240ms."
+      },
+      {
+        "name": "cut-flight",
+        "value": "520ms cubic-bezier(.45,.05,.3,1)",
+        "purpose": "The product copy flying to the order."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "all animation and transition removed",
+        "purpose": "The cut and flight are skipped; the order still updates."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone-narrow",
+        "value": "420px"
+      },
+      {
+        "name": "sheet-two-column",
+        "value": "960px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Buy Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Adds a product to the order. The interface's only saturated colour.",
+      "html": "<button class=\"ds-btn\" type=\"button\">Agregar</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 20px;border:0;border-radius:8px;background:var(--accion);color:#fff;font:700 1rem/1.5 var(--texto);cursor:pointer;transition:background-color .15s,transform .15s}.ds-btn:hover{background:var(--accion-oscura)}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:3px solid var(--tinta);outline-offset:2px}"
+    },
+    {
+      "name": "Send Button",
+      "kind": "button",
+      "refersTo": "button-send",
+      "description": "Sends the order by WhatsApp. Used once, at the end of the order page.",
+      "html": "<button class=\"ds-btn ds-btn--send\" type=\"button\">Enviar pedido por WhatsApp</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 20px;border:0;border-radius:8px;background:var(--accion);color:#fff;font:700 1rem/1.5 var(--texto);cursor:pointer;transition:background-color .15s,transform .15s}.ds-btn:hover{background:var(--accion-oscura)}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:3px solid var(--tinta);outline-offset:2px}.ds-btn--send{width:100%;min-height:56px;font-size:1.125rem}"
+    },
+    {
+      "name": "Quantity Stepper",
+      "kind": "custom",
+      "refersTo": "stepper",
+      "description": "Replaces the buy button in place once a product is in the order.",
+      "html": "<div class=\"ds-cant\" role=\"group\" aria-label=\"Cantidad\"><button type=\"button\" aria-label=\"Quitar uno\"><svg viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M2 8h12\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\"/></svg></button><output>2</output><button type=\"button\" aria-label=\"Agregar uno\"><svg viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M2 8h12M8 2v12\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\"/></svg></button></div>",
+      "css": ".ds-cant{display:flex;align-items:center;justify-content:space-between;width:124px;min-height:44px;background:var(--papel);color:var(--tinta);border-radius:8px;box-shadow:inset 0 0 0 1.5px var(--tinta)}.ds-cant button{width:44px;height:44px;border:0;background:none;color:inherit;cursor:pointer;display:grid;place-items:center;border-radius:8px}.ds-cant button:hover{background:rgba(46,33,64,.1)}.ds-cant button:focus-visible{outline:3px solid var(--tinta);outline-offset:2px}.ds-cant output{font-family:var(--display);font-weight:700;font-variant-numeric:tabular-nums}"
+    },
+    {
+      "name": "Category Chips",
+      "kind": "nav",
+      "refersTo": "category-chip",
+      "description": "Header navigation; each chip wears its category's pastel.",
+      "html": "<nav class=\"ds-cats\" aria-label=\"Categorías\"><a href=\"#\" style=\"--c:var(--coral)\">Papelería</a><a href=\"#\" style=\"--c:var(--mantequilla)\">Regalos</a><a href=\"#\" style=\"--c:var(--malva)\">Recuerdos</a><a href=\"#\" style=\"--c:var(--agua)\">Juegos</a><a href=\"#\" style=\"--c:var(--flor)\">Pintura</a></nav>",
+      "css": ".ds-cats{display:flex;gap:4px;flex-wrap:wrap}.ds-cats a{background:var(--c);color:var(--tinta);font:600 1rem/1.5 var(--display);text-decoration:none;padding:10px 14px 7px;border-radius:999px;white-space:nowrap}.ds-cats a:hover{text-decoration:underline;text-underline-offset:.15em}.ds-cats a:focus-visible{outline:3px solid var(--tinta);outline-offset:2px}"
+    },
+    {
+      "name": "Sheet With Product Cell",
+      "kind": "card",
+      "description": "Signature: a heading cell and a product cell sharing dashed cut lines on a flat pastel sheet, scissors on the line.",
+      "html": "<section class=\"ds-lamina\" style=\"--c:var(--coral)\"><div class=\"ds-grilla\"><div class=\"ds-titulo\"><h2>Papelería creativa</h2><span class=\"ds-tij\"><svg viewBox=\"0 0 48 48\" width=\"32\" height=\"32\" aria-hidden=\"true\"><path d=\"M18 19 44 8c1-.4 2 .9 1 1.8L24 25zM18 29l26 11c1 .4 2-.9 1-1.8L24 23z\" fill=\"currentColor\"/><circle cx=\"10\" cy=\"13\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4.5\"/><circle cx=\"10\" cy=\"35\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4.5\"/><path d=\"m15 17 8 7-8 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\"/></svg></span></div><article class=\"ds-corte\"><a class=\"ds-foto\" href=\"#\" tabindex=\"-1\" aria-hidden=\"true\"><svg viewBox=\"0 0 400 400\" aria-hidden=\"true\"><g transform=\"rotate(-5 200 200)\"><rect x=\"92\" y=\"52\" width=\"226\" height=\"300\" rx=\"10\" fill=\"#16a3a3\"/><rect x=\"92\" y=\"52\" width=\"34\" height=\"300\" rx=\"8\" fill=\"#2e2140\"/><rect x=\"160\" y=\"96\" width=\"126\" height=\"66\" rx=\"6\" fill=\"#ffffff\"/></g></svg></a><div class=\"ds-datos\"><h3><a href=\"#\">Cuaderno de tapa dura</a></h3><div class=\"ds-compra\"><p class=\"ds-precio\">$5.990 <small>ejemplo</small></p><button class=\"ds-btn\" type=\"button\">Agregar</button></div></div></article></div></section>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 20px;border:0;border-radius:8px;background:var(--accion);color:#fff;font:700 1rem/1.5 var(--texto);cursor:pointer;transition:background-color .15s,transform .15s}.ds-btn:hover{background:var(--accion-oscura)}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:3px solid var(--tinta);outline-offset:2px}.ds-lamina{background:var(--c);color:var(--tinta);padding:18px clamp(10px,1.2vw,18px);font:400 1rem/1.5 var(--texto)}.ds-grilla{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);border-right:var(--linea);border-bottom:var(--linea)}.ds-grilla>*{border-left:var(--linea);border-top:var(--linea);min-width:0}.ds-titulo{position:relative;padding:clamp(24px,2.6vw,40px) clamp(16px,1.8vw,28px)}.ds-titulo h2{font:800 clamp(2rem,3.5vw,3.5rem)/1.1 var(--display);letter-spacing:-.02em;margin:0}.ds-tij{position:absolute;left:clamp(16px,1.8vw,28px);top:-17px;width:32px;height:32px;padding:0 2px;background:var(--c);color:var(--tinta);display:block}.ds-tij svg{display:block;width:100%;height:100%}.ds-corte{display:flex;flex-direction:column}.ds-foto{display:block;aspect-ratio:3/2;padding:clamp(8px,1.2vw,18px);overflow:hidden}.ds-foto svg{display:block;width:100%;height:100%;transition:transform .35s cubic-bezier(.16,1,.3,1)}.ds-foto:hover svg{transform:translateY(-4px) rotate(-1.5deg)}.ds-datos{padding:0 clamp(12px,1.4vw,22px) clamp(14px,1.6vw,22px);display:flex;flex-direction:column;gap:4px;flex:1}.ds-datos h3{font:700 clamp(1.05rem,1.4vw,1.35rem)/1.1 var(--display);margin:0}.ds-datos h3 a{color:inherit;text-decoration:none}.ds-datos h3 a:hover{text-decoration:underline}.ds-datos h3 a:focus-visible{outline:3px solid var(--tinta);outline-offset:2px}.ds-compra{margin-top:auto;padding-top:8px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px}.ds-precio{margin:0;font:700 1.1rem/1.5 var(--display);font-variant-numeric:proportional-nums}.ds-precio small{font:400 .8125rem var(--texto);margin-left:4px}"
+    },
+    {
+      "name": "Delivery Options",
+      "kind": "input",
+      "refersTo": "option",
+      "description": "Two radio cards; the selected one fills with butter.",
+      "html": "<fieldset class=\"ds-opciones\"><legend class=\"ds-sr\">Forma de entrega</legend><label class=\"ds-opcion\"><input type=\"radio\" name=\"ds-entrega\" checked> Retiro en Santiago</label><label class=\"ds-opcion\"><input type=\"radio\" name=\"ds-entrega\"> Despacho</label></fieldset>",
+      "css": ".ds-opciones{display:grid;grid-template-columns:1fr 1fr;gap:10px;border:0;padding:0;margin:0}.ds-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.ds-opcion{display:flex;gap:10px;align-items:center;min-height:52px;padding:10px 14px;border:1.5px solid var(--tinta);border-radius:8px;cursor:pointer;color:var(--tinta);font:700 1rem/1.5 var(--texto)}.ds-opcion:has(input:checked){background:var(--mantequilla)}.ds-opcion:has(input:focus-visible){outline:3px solid var(--tinta);outline-offset:2px}.ds-opcion input{accent-color:var(--tinta);width:18px;height:18px;margin:0;flex:none}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Bold label over an ink-stroked field; errors thicken the stroke and stay ink.",
+      "html": "<label class=\"ds-campo\"><span>Tu nombre</span><input type=\"text\"></label><label class=\"ds-campo\"><span>Comuna</span><input type=\"text\" aria-invalid=\"true\"><small>Escribe la comuna para confirmar el despacho.</small></label>",
+      "css": ".ds-campo{display:block;margin-top:16px;color:var(--tinta);font:400 1rem/1.5 var(--texto)}.ds-campo>span{display:block;font-weight:700;margin-bottom:4px}.ds-campo input{width:100%;box-sizing:border-box;min-height:48px;padding:10px 12px;border:1.5px solid var(--tinta);border-radius:8px;background:var(--papel);color:inherit;caret-color:var(--tinta);font:inherit}.ds-campo input:focus-visible{outline:3px solid var(--tinta);outline-offset:2px}.ds-campo input[aria-invalid=true]{border-width:3px}.ds-campo small{display:block;font-weight:700;font-size:.9375rem;margin-top:4px}"
+    },
+    {
+      "name": "Order Bar",
+      "kind": "nav",
+      "refersTo": "order-bar",
+      "description": "Phone only: floats above the page once the order has contents. Rendered in flow here.",
+      "html": "<a class=\"ds-barra\" href=\"#\"><span>2 productos · $9.980</span><strong>Ver mi pedido</strong></a>",
+      "css": ".ds-barra{display:flex;min-height:56px;padding:8px 18px;align-items:center;justify-content:space-between;gap:12px;background:var(--tinta);color:#fff;border-radius:10px;text-decoration:none;font-family:var(--display);font-variant-numeric:tabular-nums;box-shadow:0 8px 24px rgba(46,33,64,.3)}.ds-barra:hover strong{text-decoration:underline}.ds-barra:focus-visible{outline:3px solid var(--tinta);outline-offset:2px}"
+    },
+    {
+      "name": "Order Stub",
+      "kind": "custom",
+      "description": "Signature: one continuous cut line down the order, ending at the scissors beside the send button.",
+      "html": "<div class=\"ds-talon\"><h2>¿Cómo lo recibes?</h2><p>El pago es por transferencia.</p><button class=\"ds-btn ds-btn--send\" type=\"button\">Enviar pedido por WhatsApp</button><span class=\"ds-talon__tij\"><svg viewBox=\"0 0 48 48\" width=\"32\" height=\"32\" aria-hidden=\"true\"><path d=\"M18 19 44 8c1-.4 2 .9 1 1.8L24 25zM18 29l26 11c1 .4 2-.9 1-1.8L24 23z\" fill=\"currentColor\"/><circle cx=\"10\" cy=\"13\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4.5\"/><circle cx=\"10\" cy=\"35\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4.5\"/><path d=\"m15 17 8 7-8 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\"/></svg></span></div>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 20px;border:0;border-radius:8px;background:var(--accion);color:#fff;font:700 1rem/1.5 var(--texto);cursor:pointer;transition:background-color .15s,transform .15s}.ds-btn:hover{background:var(--accion-oscura)}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:3px solid var(--tinta);outline-offset:2px}.ds-btn--send{width:100%;min-height:56px;font-size:1.125rem;margin-top:36px}.ds-talon{position:relative;padding-left:32px;color:var(--tinta);font:400 1rem/1.5 var(--texto)}.ds-talon::before{content:'';position:absolute;left:7px;top:6px;bottom:44px;border-left:var(--linea)}.ds-talon h2{font:700 1.5rem/1.1 var(--display);margin:0 0 12px}.ds-talon p{margin:0;color:var(--tinta-suave);font-size:.9375rem}.ds-talon__tij{position:absolute;left:-7px;bottom:13px;width:30px;height:30px;color:var(--tinta)}.ds-talon__tij svg{display:block;width:100%;height:100%}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Cut-Out Sheet",
+    "overview": "The store is one printed school sheet, and every product on it is ready to be cut out and taken. Full-bleed flat pastels from the logo sit on white paper, one colour per category, and products share their dashed cut lines in a tessellated grid rather than floating as separate cards. The refusal is specific: no marketplace of floating cards, banners and promotions.\n\nDensity is generous but not empty. A desktop sheet holds a large category-name cell plus three product cells across, and a phone sheet holds the name full width over two products across. Deep plum ink does all the reading work, a chunky hand-cut display carries names and prices over a highly legible body, and drawn scissors and a drawn flower are the only ornament.\n\nThe page is calm with one marked moment. When a product is added from a sheet, the scissors trace its cut line and the product flies to the order count. On the order page, a single dashed line runs down the stub and the scissors sit at its end beside the WhatsApp button.",
+    "keyCharacteristics": [
+      "Flat pastel sheets running edge to edge, one per category, on white paper.",
+      "Products as tessellated cells with shared dashed cut lines.",
+      "One saturated colour, reserved for buying.",
+      "Plum ink for all reading text on paper and pastel.",
+      "Grandstander for names and numbers, Atkinson Hyperlegible for sentences and controls.",
+      "Drawn scissors and flower in place of decoration."
+    ],
+    "rules": [
+      {
+        "name": "The One Sheet, One Colour Rule",
+        "body": "A category owns exactly one pastel, and its chip, sheet, product page and order thumbnail all read from that one value. Choose it in the catalogue data, never per screen.",
+        "section": "colors"
+      },
+      {
+        "name": "The Buying Colour Rule",
+        "body": "Raspberry in the interface means buy: add a product or send the order. Links, errors, status and decoration use ink. Sample product illustrations are artwork and sit outside this rule.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink On Pastel Rule",
+        "body": "Pastels are surfaces, not text, on paper or on each other. The single exception is text selection, where butter on ink reaches 12.89:1.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Grandstander names things and counts them: headings, product names, prices, category chips, the count badge. Atkinson says sentences and operates controls: body, notes, labels, buttons, fields.",
+        "section": "typography"
+      },
+      {
+        "name": "The Counting Numerals Rule",
+        "body": "Numbers that change in place (count, stepper, subtotal, total) use tabular numerals. A price standing alone in a cell stays proportional.",
+        "section": "typography"
+      },
+      {
+        "name": "The High-Riding Face Rule",
+        "body": "Grandstander sits high in its line box, so short runs set inside a filled shape take extra space on top, as chips (10px over 7px) and the count badge (3px) already do.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Holes Rule",
+        "body": "A sheet never ends with an empty space. Any gap left in the last row is filled with a cell holding the drawn flower, with its cut lines intact, for any product count at either column layout.",
+        "section": "layout"
+      },
+      {
+        "name": "The Left-The-Sheet Rule",
+        "body": "A shadow means an object has physically left the sheet. Anything printed on the sheet stays flat, at rest and on hover. Steppers and disabled buttons draw their outline with an inset 1.5px ring, which is a stroke rather than elevation.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Square Cuts, Soft Controls Rule",
+        "body": "A cell is a piece of paper and keeps its corners square. A control is a thing to press and takes its radius from the rounded scale.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do run every category sheet edge to edge in its one pastel, and let cells share their 2px dashed cut lines.",
+      "Do fill any gap in a sheet's last row with a flower cell.",
+      "Do keep raspberry for adding a product and sending the order.",
+      "Do set text on pastel in ink or faded ink, both of which pass on all five sheets.",
+      "Do signal errors with a 3px ink stroke and a bold ink message.",
+      "Do give every control a target of at least 44px and the 3px ink focus ring.",
+      "Do honour reduced motion by skipping the cut and flight entirely, while the order still updates.",
+      "Do keep the order page on white paper in one 680px column, with one continuous cut line ending at the send button."
+    ],
+    "donts": [
+      "Don't float products as separate cards with their own fills, borders, gaps or shadows.",
+      "Don't add promotional banners, pop-ups, countdowns or ads. The ink notice band exists only to declare sample products as samples.",
+      "Don't use raspberry for links, errors, sale marks, decoration or category colour.",
+      "Don't give anything printed on the sheet a shadow, including on hover. Shadows belong to what has left it.",
+      "Don't round the cells of a sheet.",
+      "Don't add a second accent colour or give two categories the same pastel.",
+      "Don't set pastel text on paper or pastel.",
+      "Don't play the cut on anything except adding a product from a sheet cell, so that it stays the one marked moment."
+    ]
+  }
+}
